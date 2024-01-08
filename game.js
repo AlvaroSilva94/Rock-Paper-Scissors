@@ -1,6 +1,20 @@
-let playerCount = 0;
-let computerCount = 0;
-let drawCount = 0;
+let playerCount;
+let computerCount;
+let drawCount;
+let playcount;
+let comptcount;
+let drawcount;
+let playArray;
+
+function resetCounters() {
+    playerCount = 0;
+    computerCount = 0;
+    drawCount = 0;
+    playcount = 0;
+    comptcount = 0;
+    drawcount = 0;
+    playArray = 0;
+}
 
 function getComputerChoice() {
 
@@ -68,10 +82,7 @@ function playRound(playerSelection, ComputerSelection){
 }
 
 function game(){ 
-    let playcount = 0;
-    let comptcount = 0;
-    let drawcount = 0;
-    let playArray = 0;
+
     for(i=1;i<6;i++)
     {
         player = getPlayerChoice();
@@ -99,4 +110,5 @@ function game(){
     }
 }
 
+resetCounters();
 game();
