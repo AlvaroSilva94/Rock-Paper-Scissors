@@ -1,19 +1,20 @@
-let playerCount;
-let computerCount;
-let drawCount;
-let playcount;
-let comptcount;
-let drawcount;
-let playArray;
+let playerCount = 0;
+let computerCount = 0;
+let drawCount = 0;
+let playcount = 0;
+let comptcount = 0;
+let drawcount = 0;
+let playArray = 0;
 
-function resetCounters() {
-    playerCount = 0;
-    computerCount = 0;
-    drawCount = 0;
-    playcount = 0;
-    comptcount = 0;
-    drawcount = 0;
-    playArray = 0;
+function resetCounters()
+{
+ playerCount = 0;
+ computerCount = 0;
+ drawCount = 0;
+ playcount = 0;
+ comptcount = 0;
+ drawcount = 0;
+ playArray = 0;
 }
 
 function getComputerChoice() {
@@ -24,10 +25,21 @@ function getComputerChoice() {
     return randomChoice;
 }
 
-function getPlayerChoice() {
+const Rock = document.getElementById('playRock');
+const Paper = document.getElementById('playPaper');
+const Scissors = document.getElementById('playScissors');
 
-    const playerSelection = prompt("Please enter an option (rock/paper/scissors): ").toLowerCase();
-    return playerSelection;
+Rock.addEventListener("click", () => {handleSelections('rock');});
+Paper.addEventListener("click", () => {handleSelections('paper');});
+Scissors.addEventListener("click", () => {handleSelections('scissors'); });
+
+function handleSelections(player) {
+    compt = getComputerChoice();
+    playArray = playRound(player,compt);
+    playcount =+playArray[0];
+    comptcount =+playArray[1];
+    drawcount =+playArray[2];
+    game();
 }
 
 function playRound(playerSelection, ComputerSelection){
@@ -83,32 +95,11 @@ function playRound(playerSelection, ComputerSelection){
 
 function game(){ 
 
-    for(i=1;i<6;i++)
-    {
-        player = getPlayerChoice();
-        compt = getComputerChoice();
-        playArray = playRound(player,compt);
-        playcount =+playArray[0];
-        comptcount =+playArray[1];
-        drawcount =+playArray[2];
-    }
     console.log(`Player won ${playcount} times`);
     console.log(`Computer won ${comptcount} times\n`);
     console.log(`There was a draw ${drawcount} times`)
 
-    if(playcount > comptcount)
-    {
-        console.log("Player is the absolute Winner!");
-    }
-    else if (comptcount > playcount)
-    {
-        console.log("Computer is the absolute Winner!");
-    }
-    else
-    {
-        console.log("It's a tie! Nobody won since both player and computer won the same amount of games!")
-    }
 }
 
-resetCounters();
-game();
+//resetCounters();
+//game();
